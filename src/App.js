@@ -4,11 +4,22 @@ import { actions } from './actions';
 
 import './App.css';
 
+import { WEATHER } from './const/actions';
 import Header from './containers/header'
 import Today from './containers/today'
 import FutureDays from './containers/future-days'
 
 class App extends Component {
+
+upWeathe()
+{
+  this.props.updateStor(actions.updateWeather(this.props.period, this.props.location));
+}
+upPeriod()
+{
+  this.props.updateStor(actions.changePeriod(this.props.period === 5 ? 10 : 5));
+  // this.props.changePeriod(this.props.period === 5 ? 10 : 5);
+}
 
   render() {
     console.log(this);
@@ -17,8 +28,8 @@ class App extends Component {
 
 <h1>Hello {this.props.period}</h1>
 
-<button onClick={this.props.updateWeather.bind(this)}>update weather</button>
-<button onClick={this.props.changePeriod.bind(this)}>change {this.props.period}</button>
+<button onClick={this.upWeathe.bind(this)}>update weather</button>
+<button onClick={this.upPeriod.bind(this)}>change {this.props.period}</button>
       </main>
     );
   }
@@ -29,11 +40,8 @@ class App extends Component {
 export default connect(
   store => ({...store}),
   dispatch => ({
-    updateWeather: (location, period) => {
-      dispatch(actions.updateWeather(period, location))
-    },
-    changePeriod: (period) => {
-      dispatch(actions.changePeriod(period))
+    updateStor:(dispatcher) => {
+      dispatch(dispatcher)
     }
   })
 )(App);
