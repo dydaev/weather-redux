@@ -2,7 +2,10 @@ import { WEATHER } from '../const/actions';
 
 const initialState = {
 	period: 5,
-  location: "Kiev"
+  location: "Kiev",
+	weather:{
+		list:[]
+	}
 };
 
 export default function mainReducer(state = initialState, action)
