@@ -9,7 +9,7 @@ const FutureDays = props =>{
   return (
     <article className="future-days">
       {props.list.map((weath, ind) =>{
-        return (<Tomorrow key={ind} { ...weath } nmDay={nmDay[ind]}/>)
+        return (<Tomorrow ind={ind} key={ind} { ...weath } nmDay={nmDay[ind]}/>)
       })}
     </article>
   )
