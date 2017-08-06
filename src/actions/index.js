@@ -18,9 +18,14 @@ export const actions = {
 			.then(result => dispatch({type: WEATHER.UPDATE_WEATHER, payload: result}));
 		}
 	},
-	changePeriod: (period) => {
+	changePeriod: period => {
 		return (dispatch) => {
 			dispatch({type: WEATHER.CHANGE_PERIOD, payload: period});
+		}
+	},
+	selectDay: day => {
+		return dispatch => {
+			dispatch({type: WEATHER.SELECTED_DAY, payload: day})
 		}
 	}
 };

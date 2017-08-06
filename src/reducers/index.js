@@ -24,12 +24,16 @@ const initialState = {
 
 export default function mainReducer(state = initialState, action)
 {
+	console.log("STORE:", state);
   switch (action.type) {
     case WEATHER.UPDATE_WEATHER:
       return Object.assign({}, state, {
 				weather: action.payload
 			});
-
+		case WEATHER.SELECTED_DAY:
+	     return Object.assign({}, state, {
+				select_day: action.payload
+			});
     case WEATHER.CHANGE_PERIOD:
       return Object.assign({}, state, {
         period: action.payload

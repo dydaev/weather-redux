@@ -30,13 +30,13 @@ const Today = props =>{
       return {
         period: periods[period].title,
         periodType: period,
-        ...props.list[0]
+        ...props.list[props.select_day]
       };
     });
-console.log("-->", weathArray);
-console.log("prop.list-->", props);
+// console.log("-->", weathArray);
+// console.log("prop.list-->", props);
   return (
-    <article>
+    <article className="today">
       {weathArray.map((weathOfPeriod, ind) => {
         return <HourWeath key={ind}  {...weathOfPeriod}/>
       })}

@@ -22,3 +22,30 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+a{
+  text-decoration: none;
+  color: black;
+}
+div.hour-weath{
+  display: inline-block;
+  margin: 20px 10px;
+}
+div.tomorrow{
+  display: inline-block;
+  border: 1px solid grey;
+  height: 100px;
+  width: 90px;
+  padding: 5px;
+  margin: 5px;
+}
+div.tomorrow>h4{
+  margin: 0 auto;
+  display: inline-block;
+}
+div.tomorrow>img{
+  display: inline-block;
+  width: 20px;
+}
+div.tomorrow>p{
+  margin: 0 auto;
+}
