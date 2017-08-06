@@ -3,8 +3,22 @@ import { WEATHER } from '../const/actions';
 const initialState = {
 	period: 5,
   location: "Kiev",
+	select_day: 0,
 	weather:{
-		list:[]
+		list:[{
+			clouds: 32,
+			deg: 309,
+			dt: 1501927200,
+			humidity: 52,
+			pressure: "1012.52",
+			speed: "4.76",
+			temp:{
+				day: 15
+			},
+			weather:[{
+				main: "Clear"
+			}]
+		}]
 	}
 };
 

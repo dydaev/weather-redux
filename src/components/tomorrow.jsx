@@ -5,13 +5,12 @@ import { WeatherIcon } from '../const/img.js'
 
 const Tomorrow = props => {
 let date = new Date(props.dt* 1000);
-console.log(props.ind);
  return (
     <div className="tomorrow">
       <h4>{props.ind ? nmDay[date.getDay()] : "Сегодня"}</h4>
-      <img src={WeatherIcon[props.main]}/>
-      <p>день {props.temp.day}</p>
+      <img src={"./img/" + props.weather[0].main + ".png"}/>
       <p>ночь {props.temp.night}</p>
+      <p>день {props.temp.day}</p>
     </div>
   )
 }
