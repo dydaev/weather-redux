@@ -1,5 +1,6 @@
 import React from 'react';
 import Img from './img';
+import Tools from '../tools';
 import { nmDay } from '../const/date.js'
 import { WeatherIcon } from '../const/img.js'
 
@@ -14,8 +15,8 @@ const Tomorrow = props => {
     <div className="tomorrow">
         <h4>{props.ind ? nmDay[date.getDay()] : "Сегодня"}</h4>
         <Img img={props.weather[0].main}/>
-        <p>ночь {props.temp.night}</p>
-        <p>день {props.temp.day}</p>
+        <p>ночь {Tools.convertTemp(props.temp.night)}</p>
+        <p>день {Tools.convertTemp(props.temp.day)}</p>
     </div>
     </a>
   )
