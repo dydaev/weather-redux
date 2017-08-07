@@ -35,8 +35,7 @@ class App extends Component {
 
   render() {return (
       <main className="App">
-        <h1>Hello {this.props.period}</h1>
-        <Header {...this.props.weather}/>
+        <Header {...this.props.current}/>
         <Today select_day={this.props.select_day} {...this.props.weather}/>
         <FutureDays click={this.upSelectedDay.bind(this)} {...this.props.weather}/>
 

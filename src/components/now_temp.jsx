@@ -1,13 +1,14 @@
 import React from 'react';
 import Img from './img';
+import Tools from '../tools';
 import { WeatherIcon } from '../const/img.js';
 
-const Temp = props =>{
-  console.log(props);
+const Temp = props => {
+
   return (
     <div className="now-temp">
-      <h2>{props.list[0].temp.max}</h2>
-      <Img img={props.list[0].weather[0].main}/>
+      <h2>{Tools.convertTemp(props.main.temp)}</h2>
+      <Img img={props.weather[0].main}/>
     </div>
   )
 }
