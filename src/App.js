@@ -19,6 +19,7 @@ class App extends Component {
   upPeriod()
   {
     this.props.updateStor(actions.changePeriod(this.props.period === 5 ? 10 : 5));
+    this.props.updateStor(actions.updateWeather(this.props.period, this.props.location));
   }
   upSelectedDay(day)
   {
@@ -33,6 +34,7 @@ class App extends Component {
   render() {return (
       <main className="App">
         <h1>Hello {this.props.period}</h1>
+        <Header {...this.props.weather}/>
         <Today select_day={this.props.select_day} {...this.props.weather}/>
         <FutureDays click={this.upSelectedDay.bind(this)} {...this.props.weather}/>
 

@@ -11,7 +11,7 @@ const Header = props =>{
       <div className="nowState">
           <Search/>
           <TodayDate />
-          <Temp />
+          <Temp {...props}/>
       </div>
       <Logo />
     </header>
