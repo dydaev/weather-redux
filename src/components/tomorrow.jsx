@@ -14,7 +14,7 @@ const Tomorrow = props => {
    <a href="#" onClick={buttonCliced}>
     <div className="tomorrow">
         <h4>{props.ind ? nmDay[date.getDay()] : "Сегодня"}</h4>
-        <Img img={props.weather[0].main}/>
+        <Img {...props.weather[0]}/>
         <p>ночь {Tools.convertTemp(props.temp.night)}</p>
         <p>день {Tools.convertTemp(props.temp.day)}</p>
     </div>

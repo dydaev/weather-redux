@@ -11,7 +11,7 @@ const HourWeath = props =>{
       <h2>{props.period}</h2>
       <div>
         <h2>{Tools.convertTemp(props.temp[props.periodType])}</h2>
-        <Img img={props.weather[0].main}/>
+        <Img {...props.weather[0]}/>
       </div>
     </div>
   )
