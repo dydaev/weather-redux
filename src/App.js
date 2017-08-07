@@ -14,6 +14,7 @@ class App extends Component {
 //TODO move methods to actions
   upWeathe()
   {
+    this.props.updateStor(actions.updateCurrentWeather(this.props.location));
     this.props.updateStor(actions.updateWeather(this.props.period, this.props.location));
   }
   upPeriod()
@@ -27,6 +28,7 @@ class App extends Component {
   
   constructor(props){
     super(props);
+    this.props.updateStor(actions.updateCurrentWeather(this.props.location));
     this.props.updateStor(actions.updateWeather(this.props.period, this.props.location));
   }
 

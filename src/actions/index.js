@@ -7,6 +7,7 @@ const BASE_URL = 'http://api.openweathermap.org/data/2.5';
 
 function fetchWeather(params) {
 	const url = `${BASE_URL}/${params}&units=metric&appid=${APP_ID}`;
+	console.log(url);
 	return fetch(url)
 	.then(response => response.json())
 }
@@ -16,6 +17,12 @@ export const actions = {
 		return (dispatch) => {
 			fetchWeather("forecast/daily?q=" + location + "&cnt=" + period)
 			.then(result => dispatch({type: WEATHER.UPDATE_WEATHER, payload: result}));
+		}
+	},
+	updateCurrentWeather: location => {
+		return dispatch => {
+			fetchWeather("weather?q=" + location)
+			.then(result => dispatch({type: WEATHER.UPDATE_CURRENT_WEATHER, payload: result}));
 		}
 	},
 	changePeriod: period => {
