@@ -1,9 +1,6 @@
 import React from 'react';
-
 import Tomorrow from '../components/tomorrow.jsx'
-
 import { nmDay } from '../const/date.js'
-import IMG from '../const/img.js'
 
 const FutureDays = props =>{
   return (

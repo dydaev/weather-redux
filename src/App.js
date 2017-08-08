@@ -4,23 +4,28 @@ import { actions } from './actions';
 
 import './App.css';
 
-import { WEATHER } from './const/actions';
 import Header from './containers/header'
 import Today from './containers/today'
 import FutureDays from './containers/future-days'
 
 class App extends Component {
-
+  constructor(props){
+    super(props);
+    this.upPeriod();
+  }
 //TODO move methods to actions
   upWeathe()
   {
-    this.props.updateStor(actions.updateCurrentWeather(this.props.location));
-    this.props.updateStor(actions.updateWeather(this.props.period, this.props.location));
+    let self = this;
+    setTimeout(function(){
+      self.props.updateStor(actions.updateCurrentWeather(self.props.location));
+      self.props.updateStor(actions.updateWeather(self.props.period, self.props.location));
+    },10)  
   }
   upPeriod()
   {
     this.props.updateStor(actions.changePeriod(this.props.period === 5 ? 10 : 5));
-    this.props.updateStor(actions.updateWeather(this.props.period, this.props.location));
+    this.upWeathe()
   }
   upSelectedDay(day)
   {
@@ -29,31 +34,24 @@ class App extends Component {
   upLocation(location)
   {
     this.props.updateStor(actions.updateLocation(location));
-    this.props.updateStor(actions.updateWeather(this.props.period, this.props.location));
-  }
-  
-  constructor(props){
-    super(props);
-    this.props.updateStor(actions.updateCurrentWeather(this.props.location));
-    this.props.updateStor(actions.updateWeather(this.props.period, this.props.location));
+    this.upWeathe()
   }
 
-  render() {return (
+  render() {
+    const showDays = this.props.period === 5 ? 10 : 5;
+    return (
       <main className="App">
         <Header focus={this.upLocation.bind(this)} {...this.props}/>
         <Today select_day={this.props.select_day} {...this.props.weather}/>
         <div className="change-days">
-          <a href="#" onClick={this.upPeriod.bind(this)}>Показать погоду на {this.props.period} дней</a>
+          <a href="#a" onClick={this.upPeriod.bind(this)}>Показать погоду на {showDays} дней</a>
         </div>
         <FutureDays click={this.upSelectedDay.bind(this)} {...this.props.weather}/>
-
-        <button onClick={this.upWeathe.bind(this)}>update weather</button>
+        <p id="copyrigh">&copy; 2017 designed by romaChe</p>
       </main>
     );}
 }
 
-// const mapStateToProps = function(store) {
-//   return
 export default connect(
   store => ({...store}),
   dispatch => ({

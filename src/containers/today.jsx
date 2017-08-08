@@ -4,7 +4,6 @@ import HourWeath from '../components/hourWeath';
 
 const Today = props =>{
   let weathArray = [];
-  const Line = () => <div className="breack-line"/>
   
   const periods = {
     "night": {timeOf: 0, title: "Ночь"},
@@ -12,40 +11,26 @@ const Today = props =>{
     "day": {timeOf: 12, title: "День"},
     "eve": {timeOf: 18, title: "Вечер"}
   };
-  
-  /*if(props.select_day == 0) { //if need 
-    const hour = new Date().getHours();
-    weathArray = Object.keys(periods).reduce((acc, period, ind) => {
-      let result = acc;
-      if(periods[period].timeOf >= hour) {
-        result.push({ 
-          period: periods[period].title,
-          periodType: period,
-          ...props.list[0]
-        });
-      }
-      return result
-    },[])
-  } else {//next "weathArray cut to this"
-}//TODO add missing periods from next day (Array.concat())*/
-    weathArray = Object.keys(periods).map( period =>{
-      return {
-        period: periods[period].title,
-        periodType: period,
-        ...props.list[props.select_day]
-      };
-    });
-// console.log("-->", weathArray);
-// console.log("prop.list-->", props);
+  weathArray = Object.keys(periods).map( period =>{
+    return {
+      period: periods[period].title,
+      periodType: period,
+      ...props.list[props.select_day]
+    };
+  });
+  const Line = ({ opacity }) => {
+    const splitterStyle = {
+         opacity: opacity
+     }
+    return <div style={splitterStyle} className="breack-line"/>
+  }
   return (
     <article className="today">
       {weathArray.map((weathOfPeriod, ind) => {
-        let line;
-        const opacity = ind * 0.1 * 3
-        line = ind == 0 ? "" : <Line style="opasity: ${opacity}"/>;
-        return  <div>
+        let line = ind === 0 ? "" : <Line opasity={ind * 0.1 * 3}/>;
+        return  <div key={ind}>
                   {line}
-                  <HourWeath key={ind}  {...weathOfPeriod}/>
+                  <HourWeath  {...weathOfPeriod}/>
                 </div>
       })}
     </article>

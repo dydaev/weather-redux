@@ -1,12 +1,13 @@
 import { WEATHER } from '../const/actions';
 
 const initialState = {
-	period: 10,
+	period: 5,
 	location: "Kiev",
 	select_day: 0,
 	current:{
 		weather: [{
-			main: "Clear"
+			main: "Clear",
+			icon: "01n"
 		}],
 		main:{ 
 			temp: 0
@@ -21,10 +22,10 @@ const initialState = {
 			pressure: "--//--",
 			speed: "--//--",
 			temp:{
-				day: 0
+				day: "0"
 			},
 			weather:[{
-				main: "Clear"
+				icon: "01n"
 			}]
 		}]
 	}

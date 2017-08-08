@@ -1,9 +1,6 @@
 import React from 'react';
 import Img from './img';
 import Tools from '../tools';
-import Search from '../components/hourWeath'
-
-import { WeatherIcon } from '../const/img.js'
 
 const HourWeath = props =>{
   return (

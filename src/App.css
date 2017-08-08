@@ -35,21 +35,34 @@ header{
 }
 div.nowState{
   float: left;
-  width: 355px;
+  width: 400px;
+}
+.conteiner-search{
+  position: relative;
 }
 .search{
+  display: inline-block;
   border-radius: 5px;
   margin-top: 20px;
+  margin-right: 5px;
   height: 50px;
   width: 355px;
   font-size: 45px;
   border: none;
-  text-align: center;
+  padding-left: 20px;
   color: #b1bbcb;
   /*background: radial-gradient(at right top, #fff, #bbd1eb);*/
 }
 [type="search"]::-webkit-input-placeholder{
   color: #b1bbcb;
+}
+.conteiner-search span {
+  position: absolute;
+  top: 21px;
+  left: 300px;
+  font-size: 45px;
+  margin-bottom: 20px;
+  color: red;
 }
 div.today-date{
   margin-top: 30px;
@@ -170,4 +183,8 @@ div.tomorrow>p{
   margin: 15px auto;
   font-size: 23px;
   color: #9870ad;
+}
+#copyrigh{
+  margin: 0 auto;
+  padding: 5px 0;
 }

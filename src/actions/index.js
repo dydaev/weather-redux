@@ -12,6 +12,26 @@ function fetchWeather(params) {
 	.then(response => response.json())
 }
 
+// export const upWeathe = () =>
+//   {
+//     this.props.updateStor(actions.updateCurrentWeather(this.props.location));
+//     this.props.updateStor(actions.updateWeather(this.props.period, this.props.location));
+//   }
+// export const upPeriod = () =>
+//   {
+//     this.updateStor(actions.changePeriod(this.props.period === 5 ? 10 : 5));
+//     this.upWeathe();
+//   }
+// export const upSelectedDay = day =>
+//   {
+//     this.props.updateStor(actions.selectDay(day));
+//   }
+// export const upLocation = location =>
+//   {
+//     this.props.updateStor(actions.updateLocation(location));
+//     this.upWeathe();
+//   }
+
 export const actions = {
 	updateLocation: location => {
 		return dispatch => {

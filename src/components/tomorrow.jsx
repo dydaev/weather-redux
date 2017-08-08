@@ -2,8 +2,6 @@ import React from 'react';
 import Img from './img';
 import Tools from '../tools';
 import { nmDay } from '../const/date.js'
-import { WeatherIcon } from '../const/img.js'
-
 
 const Tomorrow = props => {
   let date = new Date(props.dt * 1000);
@@ -11,7 +9,7 @@ const Tomorrow = props => {
     props.click(props.ind);
   }
   return (
-   <a href="#" onClick={buttonCliced}>
+   <a href="#a" onClick={buttonCliced}>
     <div className="tomorrow">
         <h4>{props.ind ? nmDay[date.getDay()] : "Сегодня"}</h4>
         <Img {...props.weather[0]}/>
