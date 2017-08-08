@@ -1,7 +1,7 @@
 import { WEATHER } from '../const/actions';
 
 const initialState = {
-	period: 5,
+	period: 10,
 	location: "Kiev",
 	select_day: 0,
 	current:{
@@ -38,8 +38,12 @@ export default function mainReducer(state = initialState, action)
     	return Object.assign({}, state, {
 			weather: action.payload
 		});
-	case WEATHER.SELECTED_DAY:
-		return Object.assign({}, state, {
+		case WEATHER.CHANGE_LOCATION:
+			return Object.assign({}, state, {
+			location: action.payload
+		});
+		case WEATHER.SELECTED_DAY:
+			return Object.assign({}, state, {
 			select_day: action.payload
 		});
     case WEATHER.CHANGE_PERIOD:

@@ -1,10 +1,21 @@
 import React from 'react';
 
 const Search = props =>{
+  let locationInput;
+  const changeLocation = () => {
+    props.focus(this.locationInput.value);
+  }
   return (
-    <div>
-      <input className="search" type="text" value/>
-    </div>
+      <input 
+        ref={(input) => {
+          this.locationInput = input
+        }} 
+        onBlur={changeLocation} 
+        className="search" 
+        type="search" 
+        results="5"
+        placeholder={props.location}
+      />
   )
 }
 

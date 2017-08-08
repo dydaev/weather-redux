@@ -26,6 +26,11 @@ class App extends Component {
   {
     this.props.updateStor(actions.selectDay(day));
   }
+  upLocation(location)
+  {
+    this.props.updateStor(actions.updateLocation(location));
+    this.props.updateStor(actions.updateWeather(this.props.period, this.props.location));
+  }
   
   constructor(props){
     super(props);
@@ -35,12 +40,14 @@ class App extends Component {
 
   render() {return (
       <main className="App">
-        <Header {...this.props.current}/>
+        <Header focus={this.upLocation.bind(this)} {...this.props}/>
         <Today select_day={this.props.select_day} {...this.props.weather}/>
+        <div className="change-days">
+          <a href="#" onClick={this.upPeriod.bind(this)}>Показать погоду на {this.props.period} дней</a>
+        </div>
         <FutureDays click={this.upSelectedDay.bind(this)} {...this.props.weather}/>
 
         <button onClick={this.upWeathe.bind(this)}>update weather</button>
-        <button onClick={this.upPeriod.bind(this)}>change {this.props.period}</button>
       </main>
     );}
 }

@@ -9,9 +9,9 @@ const Header = props =>{
   return (
     <header>
       <div className="nowState">
-          <Search/>
+          <Search focus={props.focus} {...props}/>
           <TodayDate />
-          <Temp {...props}/>
+          <Temp {...props.current}/>
       </div>
       <Logo />
     </header>

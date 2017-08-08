@@ -4,6 +4,8 @@ import HourWeath from '../components/hourWeath';
 
 const Today = props =>{
   let weathArray = [];
+  const Line = () => <div className="breack-line"/>
+  
   const periods = {
     "night": {timeOf: 0, title: "Ночь"},
     "morn": {timeOf: 6, title: "Утро"},
@@ -38,7 +40,13 @@ const Today = props =>{
   return (
     <article className="today">
       {weathArray.map((weathOfPeriod, ind) => {
-        return <HourWeath key={ind}  {...weathOfPeriod}/>
+        let line;
+        const opacity = ind * 0.1 * 3
+        line = ind == 0 ? "" : <Line style="opasity: ${opacity}"/>;
+        return  <div>
+                  {line}
+                  <HourWeath key={ind}  {...weathOfPeriod}/>
+                </div>
       })}
     </article>
   )
