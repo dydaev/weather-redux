@@ -33,7 +33,7 @@ const initialState = {
 
 export default function mainReducer(state = initialState, action)
 {
-	console.log("STORE:", state);
+	// console.log("STORE:", state);
   switch (action.type) {
     case WEATHER.UPDATE_WEATHER:
     	return Object.assign({}, state, {
