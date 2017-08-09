@@ -8,7 +8,7 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/build'));
 
 // set the home page route
-app.get('/public/', function(req, res) {
+app.get('/public', function(req, res) {
 
     // ejs render automatically looks in the views folder
     res.render('tratata');
