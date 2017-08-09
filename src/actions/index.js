@@ -6,7 +6,7 @@ const APP_ID = '9ccb20b5e2fd3d34779cb287dcc4e336';
 const BASE_URL = 'http://api.openweathermap.org/data/2.5';
 
 function fetchWeather(params) {
-	const url = `${BASE_URL}/${params}&units=metric&appid=${APP_ID}`;
+	const url = `${BASE_URL}/${params}&units=metric&lang=ru&appid=${APP_ID}`;
 	// console.log(url);
 	return fetch(url)
 	.then(response => response.json())

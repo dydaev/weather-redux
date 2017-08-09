@@ -7,19 +7,19 @@ class Search extends PureComponent
     this.changeVal = this.changeVal.bind(this);
     this.changeLocation = this.changeLocation.bind(this);
     this.state = {
-      location:  props.location,
-      country: props.country
+      location: props.location,
+      country:  props.country
     }
   }
-  componentWillUpdate(nextProps, nextState) {
-    this.setState({
-      location:  nextProps.location,
-      country: nextProps.country
-    })
+  componentWillReceiveProps(nextProps) {
+    this.state = {
+      location: nextProps.location,
+      country:  nextProps.country
+    }
   }
   shouldComponentUpdate(nextProps, nextState) {
-    return  nextProps.location !== this.props.location
-            || nextProps.country !== this.props.country; 
+    return nextProps.location !== this.props.location
+        || nextProps.country !== this.props.country
   }
   changeLocation() {
     if(this.locationInput.value !== "") {
@@ -33,7 +33,6 @@ class Search extends PureComponent
     }
   }
   render() {
-    console.log("search: Rendered ", this.state.location, ":", this.state.country)
     return(
       <div className="conteiner-search">
         <input
