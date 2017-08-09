@@ -4,16 +4,17 @@ class Search extends PureComponent
 {
   constructor(props) {
     super(props);
-    
+    this.changeVal = this.changeVal.bind(this);
+    this.changeLocation = this.changeLocation.bind(this);
     this.state = {
-      location:  "",
-      country: ""
+      location:  props.location,
+      country: props.country
     }
   }
   componentWillUpdate(nextProps, nextState) {
     this.setState({
-      location:  nextProps.weather.city === undefined ? "" : nextProps.weather.city.name,
-      country: nextProps.weather.city === undefined ? "" : nextProps.weather.city.country
+      location:  nextProps.location,
+      country: nextProps.country
     })
   }
   changeLocation() {

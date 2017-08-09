@@ -39,6 +39,8 @@ class App extends Component {
 
   render() {
     const showDays = this.props.period === 5 ? 10 : 5;
+    //TODO fix bag with <Header focus={this.upLocation.bind(this), rerendering
+    //due to binding
     return (
       <main className="App">
         <Header focus={this.upLocation.bind(this)} {...this.props}/>
