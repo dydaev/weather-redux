@@ -17,6 +17,10 @@ class Search extends PureComponent
       country: nextProps.country
     })
   }
+  shouldComponentUpdate(nextProps, nextState) {
+    return  nextProps.location !== this.props.location
+            || nextProps.country !== this.props.country; 
+  }
   changeLocation() {
     if(this.locationInput.value !== "") {
       this.props.focus(this.locationInput.value);
@@ -32,15 +36,15 @@ class Search extends PureComponent
     console.log("search: Rendered ", this.state.location, ":", this.state.country)
     return(
       <div className="conteiner-search">
-        <input 
+        <input
           id="search"
           ref={ input => {
             this.locationInput = input
-          }} 
-          onBlur={this.changeLocation.bind(this)} 
+          }}
+          onBlur={this.changeLocation.bind(this)}
           onKeyPress={this.changeVal.bind(this)}
-          className="search" 
-          type="search" 
+          className="search"
+          type="search"
           results="5"
           placeholder={this.state.location}
         />
