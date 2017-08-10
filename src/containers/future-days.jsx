@@ -6,7 +6,12 @@ const FutureDays = props =>{
   return (
     <article className="future-days">
       {props.list.map((weath, ind) =>{
-        return (<Tomorrow click={props.click} ind={ind} key={ind} { ...weath } nmDay={nmDay[ind]}/>)
+        return (<Tomorrow
+          ind={ind} key={ind}
+          click={props.click}
+          selectedDay={props.selectedDay}
+          { ...weath }
+          nmDay={nmDay[ind]}/>)
       })}
     </article>
   )

@@ -24,11 +24,12 @@ class App extends Component {
     },10)
   }
   upPeriod()
-  { this.props.updateStor(
-      actions.changePeriod(
-        Tools.getNextPeriod(periods, this.props.period)
-      )
-    );
+  {
+    const nextPeriod = Tools.getNextPeriod(periods, this.props.period)
+    if (nextPeriod < this.props.select_day ) {
+      this.upSelectedDay(0)
+    }
+    this.props.updateStor(actions.changePeriod(nextPeriod));
     this.upWeathe()
   }
   upSelectedDay(day)
@@ -51,7 +52,11 @@ class App extends Component {
         <div className="change-days">
           <a href="#a" onClick={this.upPeriod.bind(this)}>Показать погоду на {showDays} дней</a>
         </div>
-        <FutureDays click={this.upSelectedDay.bind(this)} {...this.props.weather}/>
+        <FutureDays
+          selectedDay={this.props.select_day}
+          click={this.upSelectedDay.bind(this)}
+          {...this.props.weather}
+        />
         <p id="copyrigh">&copy; 2017 designed by romaChe</p>
       </main>
     );}
