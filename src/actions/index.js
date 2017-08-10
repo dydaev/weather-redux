@@ -3,7 +3,7 @@ import fetch from 'isomorphic-fetch';
 import { WEATHER } from '../const/actions';
 
 const APP_ID = '9ccb20b5e2fd3d34779cb287dcc4e336';
-const BASE_URL = 'http://api.openweathermap.org/data/2.5';
+const BASE_URL = 'https://api.openweathermap.org/data/2.5';
 
 function fetchWeather(params) {
 	const url = `${BASE_URL}/${params}&units=metric&lang=ru&appid=${APP_ID}`;

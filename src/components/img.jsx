@@ -4,7 +4,7 @@ const Img = props =>{
   // <img src={"./img/" + props.img + ".png"} alt={props.img}/>
   // let icon = props === undefined ? "01n" : props.icon;
   // console.log(props , " = ", icon);
-  const icon = "http://openweathermap.org/img/w/" + props.icon + ".png";
+  const icon = "https://openweathermap.org/img/w/" + props.icon + ".png";
   return (
       <img src={icon} alt={props.img}/>
 )}
