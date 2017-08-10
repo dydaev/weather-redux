@@ -22,8 +22,10 @@ class Search extends PureComponent
         || nextProps.country !== this.props.country
   }
   changeLocation() {
-    if(this.locationInput.value !== "") {
+    if(this.locationInput.value.length > 3) {
       this.props.focus(this.locationInput.value);
+      this.locationInput.value = "";
+    } else {
       this.locationInput.value = "";
     }
   }
