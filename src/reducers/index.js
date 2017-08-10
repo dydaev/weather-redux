@@ -1,7 +1,8 @@
 import { WEATHER } from '../const/actions';
+import periods from '../const/periods'
 
 const initialState = {
-	period: 10,
+	period: periods[periods.length - 1],
 	location: "Kiev",
 	select_day: 0,
 	current:{
@@ -9,7 +10,7 @@ const initialState = {
 			main: "Clear",
 			icon: "01n"
 		}],
-		main:{ 
+		main:{
 			temp: 0
 		}
 	},

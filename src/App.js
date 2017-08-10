@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { actions } from './actions';
-
+import periods from './const/periods'
+import Tools from './tools'
 import './App.css';
 
 import Header from './containers/header'
@@ -20,11 +21,14 @@ class App extends Component {
     setTimeout(function(){
       self.props.updateStor(actions.updateCurrentWeather(self.props.location));
       self.props.updateStor(actions.updateWeather(self.props.period, self.props.location));
-    },10)  
+    },10)
   }
   upPeriod()
-  {
-    this.props.updateStor(actions.changePeriod(this.props.period === 5 ? 10 : 5));
+  { this.props.updateStor(
+      actions.changePeriod(
+        Tools.getNextPeriod(periods, this.props.period)
+      )
+    );
     this.upWeathe()
   }
   upSelectedDay(day)
@@ -36,9 +40,8 @@ class App extends Component {
     this.props.updateStor(actions.updateLocation(location));
     this.upWeathe()
   }
-
   render() {
-    const showDays = this.props.period === 5 ? 10 : 5;
+    const showDays = Tools.getNextPeriod(periods, this.props.period)
     //TODO fix bag with <Header focus={this.upLocation.bind(this), rerendering
     //due to binding
     return (
@@ -57,7 +60,7 @@ class App extends Component {
 export default connect(
   store => ({...store}),
   dispatch => ({
-    updateStor:(dispatcher) => {
-      dispatch(dispatcher)}
+    updateStor:(action) => {
+      dispatch(action)}
   })
 )(App);
