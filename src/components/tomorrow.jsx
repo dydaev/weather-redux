@@ -51,7 +51,6 @@ class Tomorrow extends PureComponent
     return false;
   }
   render() {
-    console.log("Rended: tomorrow #", this.state.ind) 
     return (
      <a href="#a" onClick={this.buttonCliced.bind(this)}>
       <div className={this.state._class}>

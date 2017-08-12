@@ -8,6 +8,7 @@ const FutureDays = props =>{
       {props.list.map((weath, ind) =>{
         return (
           <Tomorrow
+            dt={weath.dt}
             ind={ind} key={ind}
             img={weath.weather[0].main}
             icon={weath.weather[0].icon}

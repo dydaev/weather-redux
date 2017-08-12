@@ -18,6 +18,6 @@
   "scripts": {
     "preinstall": "npm install express",
     "build": "react-scripts build",
-    "start": "node server.js"
+    "start": "react-scripts start"
   }
 }

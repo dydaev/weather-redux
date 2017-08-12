@@ -1,12 +1,9 @@
 import React from 'react';
 
-const Img = props =>{
-  // <img src={"./img/" + props.img + ".png"} alt={props.img}/>
-  // let icon = props === undefined ? "01n" : props.icon;
-  // console.log(props , " = ", icon);
-  const icon = "https://openweathermap.org/img/w/" + props.icon + ".png";
+const Img = ({ icon, img }) =>{
+  icon = "https://openweathermap.org/img/w/" + icon + ".png";
   return (
-      <img src={icon} alt={props.img}/>
+      <img src={ icon } alt={ img }/>
 )}
 
 export default Img;
